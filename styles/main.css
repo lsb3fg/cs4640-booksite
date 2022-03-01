@@ -28,3 +28,18 @@
     }
 }
 
+#main-header{
+    text-align: center;
+}
+
+#login-button{
+    margin-right: 15px;
+}
+
+.footer{
+    width: 100%;
+}
+
+.page-wrap{
+    height: 100%;
+}
