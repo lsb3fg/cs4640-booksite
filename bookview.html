@@ -20,7 +20,7 @@ You can see that the carousel was unnecessarily difficult for me.
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Luke Britton, Maxim Gorodchanin">
+    <meta name="author" content="Maxim Gorodchanin">
     <title>UVA Textbook Sales</title>
     <meta name="description" content="book example page for CS4640 project">
     <meta name="keywords" content="Book Title UVA">
@@ -44,13 +44,13 @@ You can see that the carousel was unnecessarily difficult for me.
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="./index.html">Home</a>
+                            <a class="nav-link active" href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="./bookview.html">View Listings</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="./sell_form.html">Sell a Book</a>
+                            <a class="nav-link active" href="./sell_form.html">Sell a Book</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -172,19 +172,19 @@ You can see that the carousel was unnecessarily difficult for me.
 
 
 
-    <div class="footer">
-        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <p class="col-md-4 mb-0 text-muted">&copy; CS4640: Luke Britton, Maxim Gorodchanin</p>
-
-            <ul class="nav  col-md-4 justify-content-end">
-                <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="all_books.html" class="nav-link px-2 text-muted">View Listings</a></li>
-                <li class="nav-item"><a href="sell_form.html" class="nav-link px-2 text-muted">Sell a Book</a></li>
-                <li class="nav-item"><a href="account.html" class="nav-link px-2 text-muted">Account</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link px-2 text-muted">About</a></li>
-            </ul>
-        </footer>
-    </div>
+    <footer id="sticky-footer" class="flex-shrink-0 align-items-center py-3 my-4 border-top">
+        <div class="text-center">
+          <p class="col-md-4 mb-0 text-muted" style="float: left;">&copy; CS4640: Luke Britton, Maxim Gorodchanin</p>
+  
+          <ul class="nav col-md-4 justify-content-end" style="float: right; margin-right: 80px;">
+              <li class="nav-item"><a href="index.html" class="nav-link px-2">Home</a></li>
+              <li class="nav-item"><a href="all_books.html" class="nav-link px-2">View Listings</a></li>
+              <li class="nav-item"><a href="sell_form.html" class="nav-link px-2">Sell a Book</a></li>
+              <li class="nav-item"><a href="account.html" class="nav-link px-2">Account</a></li>
+              <li class="nav-item"><a href="about.html" class="nav-link px-2">About</a></li>
+          </ul>
+        </div>
+      </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>

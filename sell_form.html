@@ -5,7 +5,7 @@
          <meta http-equiv="X-UA-Compatible" content="IE=edge">
          <meta name="viewport" content="width=device-width, initial-scale=1"> 
 
-         <meta name="author" content="Luke Britton, Maxim Gorodchanin">
+         <meta name="author" content="Luke Britton">
          <title>UVA Textbook Sales</title>
          <meta name="description" content="index page for CS4640 project">
          <meta name="keywords" content="define keywords for search engines"> 
@@ -26,10 +26,10 @@
                         <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="./all_books.html">View Listings</a>
+                        <a class="nav-link active" href="./all_books.html">View Listings</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="./sell_form.html">Sell a Book</a>
+                        <a class="nav-link active" href="./sell_form.html">Sell a Book</a>
                       </li>
                     </ul>
                     <form class="d-flex">
@@ -53,34 +53,79 @@
          <div class="page-wrap">
             <div class="card text-center col-md-8">
                 <div class="card-header">
-                  <p>List a Book</p> 
+                  <h3>List a Book</h3> 
                   <small>Fill out as many fields as possible.</small>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="card col-md-6" style="float: left;">
+                        <div class="card-body col-md-12 form">
+                            <h4>Book info</h4>
+                            <form id="sell-form" action="./list_book.php">
+                                <label for="title">Title:</label><br>
+                                <input type="text" id="title" name="title" required><br>
+                                <label for="author">Author:</label><br>
+                                <input type="text" id="author" name="author" required><br>
+                                <label for="edition">Edition:</label><br>
+                                <input type="text" id="edition" name="edition" required><br>
+                                <label for="isbn">ISBN:</label><br>
+                                <input type="text" id="isbn" name="isbn" required><br>
+                                <label for="condition">Condition:</label><br>
+                                <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">New</button><br>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">New</a></li>
+                                    <li><a class="dropdown-item" href="#">Used</a></li>
+                                </ul>
+                                <label for="related-classes">Relevant Classes:</label><br>
+                                <input type="text" id="related-classes" name="related-classes" required><br>
+                                <label for="img">Select image:</label><br>
+                                <input type="file" id="img" name="img" accept="image/*"><br>
+                                <label for="price">Sale Price:</label><br>
+                                <input type="text" id="price" name="price"><br>
+                                <label for="description">Description:</label><br>
+                                <textarea name="description" id="description" cols="30" rows="5"></textarea>
+                                
+                            </form>
+                        </div>  
+                    </div>
+                    <div class="card col-md-6" style="float: left;">
+                        <div class="card-body col-md-12">
+                            <h4>Seller info</h4>
+                            <form id="sell-form" action="./list_book.php">
+                                <label for="use-profile">Use Profile Info:</label>
+                                <input type="checkbox" name="use-profile" id="use-profile"><br><br>
+                                <label for="fname">First Name:</label><br>
+                                <input type="text" id="fname" name="fname" required><br>
+                                <label for="lname">Last Name:</label><br>
+                                <input type="text" id="lname" name="lname" required><br>  
+                                <label for="email">Email:</label><br>
+                                <input type="email" id="email" name="email" required><br> 
+                                <label for="phone">Phone:</label><br>
+                                <input type="tel" id="phone" name="phone" required><br>                         
+                            </form>
+                        </div>  
+                    </div>   
                 </div>
-                <div class="card-footer text-muted">
-                  2 days ago
+                <div class="card-footer" style="text-align: right;">
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-              </div>
-         </div>
+            </div>
+        </div>
 
          
 
-         <div class="footer">
-            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-                <p class="col-md-4 mb-0 text-muted">&copy; CS4640: Luke Britton, Maxim Gorodchanin</p>
-    
-                <ul class="nav col-md-4 justify-content-end">
-                    <li class="nav-item"><a href="index.html" class="nav-link px-2 text-muted">Home</a></li>
-                    <li class="nav-item"><a href="all_books.html" class="nav-link px-2 text-muted">View Listings</a></li>
-                    <li class="nav-item"><a href="sell_form.html" class="nav-link px-2 text-muted">Sell a Book</a></li>
-                    <li class="nav-item"><a href="account.html" class="nav-link px-2 text-muted">Account</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link px-2 text-muted">About</a></li>
-                </ul>
-            </footer>
+        <footer id="sticky-footer" class="flex-shrink-0 align-items-center py-3 my-4 border-top">
+            <div class="text-center">
+              <p class="col-md-4 mb-0 text-muted" style="float: left;">&copy; CS4640: Luke Britton, Maxim Gorodchanin</p>
+      
+              <ul class="nav col-md-4 justify-content-end" style="float: right; margin-right: 80px;">
+                  <li class="nav-item"><a href="index.html" class="nav-link px-2">Home</a></li>
+                  <li class="nav-item"><a href="all_books.html" class="nav-link px-2">View Listings</a></li>
+                  <li class="nav-item"><a href="sell_form.html" class="nav-link px-2">Sell a Book</a></li>
+                  <li class="nav-item"><a href="account.html" class="nav-link px-2">Account</a></li>
+                  <li class="nav-item"><a href="about.html" class="nav-link px-2">About</a></li>
+              </ul>
+            </div>
+          </footer>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
      </body>
