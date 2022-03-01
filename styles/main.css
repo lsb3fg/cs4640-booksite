@@ -86,3 +86,8 @@ h1 {
     from {color: #232D4B;}
     to {color: #E57200;}
   }
+
+.card-header p{
+    font-size: 2em;
+    margin-bottom: 0;
+}
