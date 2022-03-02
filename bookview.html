@@ -14,6 +14,9 @@ https://stackoverflow.com/questions/35352336/setting-a-max-height-on-a-bootstrap
 https://stackoverflow.com/questions/13391566/twitter-bootstrap-carousel-different-height-images-cause-bouncing-arrows
 https://stackoverflow.com/questions/18990675/how-to-fix-a-footer-overlapping-content
 You can see that the carousel was unnecessarily difficult for me.
+
+https://www.w3schools.com/howto/howto_js_toggle_hide_show.asp
+For email button
  -->
 
 <head>
@@ -44,13 +47,13 @@ You can see that the carousel was unnecessarily difficult for me.
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" href="./index.html">Home</a>
+                            <a class="nav-link " href="./index.html">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./bookview.html">View Listings</a>
+                            <a class="nav-link "  href="./all_books.html">View Listings</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="./sell_form.html">Sell a Book</a>
+                            <a class="nav-link " href="./sell_form.html">Sell a Book</a>
                         </li>
                     </ul>
                     <form class="d-flex">
@@ -73,8 +76,8 @@ You can see that the carousel was unnecessarily difficult for me.
 
 
 
-    <div class="page-wrap">
-        <div class="row d-flex justify-content-center align-items-center" id="book-description">
+    <div class="page-wrap align-items-start" style="min-height: 0px;">
+        <div class="row d-flex justify-content-center align-items-start" id="book-description" style="margin:0">
             <div class="card shadow-2-strong col-md-10 bg-light" style="border-radius: 1rem; padding: 1%;">
                 <div class="row no-gutters">
 
@@ -98,13 +101,13 @@ You can see that the carousel was unnecessarily difficult for me.
                                 <div class="carousel-item active" style=" overflow: hidden;">
 
                                     <img src="media/book3.jpg" class="float-center w-100 ml-10 mr-10 book-image"
-                                        alt="image 1" style="  
+                                        alt="picture of book" style="  
                                             min-width: 200px; height: 300px;">
                                 </div>
 
                                 <div class="carousel-item" style=" overflow: hidden;">
                                     <img src="media/book2.jpg" class="float-center w-100 ml-10 mr-10 book-image"
-                                        alt="image 1" style=" 
+                                        alt="an alternative image of a book" style=" 
                                             min-width: 200px; height: 300px;">
                                 </div>
                             </div>
@@ -127,22 +130,27 @@ You can see that the carousel was unnecessarily difficult for me.
                     </div>
                     <div class="col-md-6 ">
                         <div id="description">
-                        <h6 class="card-subtitle mb-2 text-justify text-center " id="book-title"> $119.99</h6>
-                        <span>Seller: <a href="accountpage.html">John Doe</a></span> <br>
-                        <span>Email: <a href="mailto:johndoe@virgnia.edu">johndoe@virginia.edu</a> </span> <br>
-                        <hr class="solid">
-                        <span>Title: Book title</span> <br>
-                        <span>ISBN: 12345678</span> <br>
-                        <span>Author(s): Book Author</span> <br>
-                        <span>Condition: Used</span> <br>
-                        <hr class="solid">
-                        <span>Related Classes: Intro To Books (LIT1), Literature 101 (LIT101), Beekeeping (BK123)
-                        </span> <br>
-                        <hr class="solid">
-                        <span> <a href="search.html">Find Other Sellers</a></span> <br>
-                        <hr class="solid">
-                        <button onclick="disclaimerFunction()">Add to Cart!</button>
-                    </div>
+                            <h6 class="card-subtitle mb-2 text-justify text-center " id="book-title"> $119.99</h6>
+                            <span>Seller: <a href="accountpage.html">John Doe</a></span> <br>
+
+
+                            <span>Email: <a id="email" style="display: none;"
+                                    href="mailto:johndoe@virgnia.edu">johndoe@virginia.edu</a> <button
+                                    onclick="revealEmail()">Reveal Email</button></span> <br>
+
+                            <hr class="solid">
+                            <span>Title: Book title</span> <br>
+                            <span>ISBN: 12345678</span> <br>
+                            <span>Author(s): Book Author</span> <br>
+                            <span>Condition: Used</span> <br>
+                            <hr class="solid">
+                            <span>Related Classes: Intro To Books (LIT1), Literature 101 (LIT101), Beekeeping (BK123)
+                            </span> <br>
+                            <hr class="solid">
+                            <span> <a href="search.html">Find Other Sellers</a></span> <br>
+                            <hr class="solid">
+                            <button onclick="disclaimerFunction()">Add to Cart!</button>
+                        </div>
                     </div>
                 </div>
 
@@ -150,11 +158,6 @@ You can see that the carousel was unnecessarily difficult for me.
 
 
                 "
-                <script>
-                    function disclaimerFunction() {
-                        alert("Maybe we will actually make a shopping cart!");
-                    }
-                </script>
 
 
 
@@ -174,20 +177,41 @@ You can see that the carousel was unnecessarily difficult for me.
 
     <footer id="sticky-footer" class="flex-shrink-0 align-items-center py-3 my-4 border-top">
         <div class="text-center">
-          <p class="col-md-4 mb-0 text-muted" style="float: left;">&copy; CS4640: Luke Britton, Maxim Gorodchanin</p>
-  
-          <ul class="nav col-md-4 justify-content-end" style="float: right; margin-right: 80px;">
-              <li class="nav-item"><a href="index.html" class="nav-link px-2">Home</a></li>
-              <li class="nav-item"><a href="all_books.html" class="nav-link px-2">View Listings</a></li>
-              <li class="nav-item"><a href="sell_form.html" class="nav-link px-2">Sell a Book</a></li>
-              <li class="nav-item"><a href="account.html" class="nav-link px-2">Account</a></li>
-              <li class="nav-item"><a href="about.html" class="nav-link px-2">About</a></li>
-          </ul>
+            <p class="col-md-4 mb-0 text-muted" style="float: left;">&copy; CS4640: Luke Britton, Maxim Gorodchanin</p>
+
+            <ul class="nav col-md-4 justify-content-end" style="float: right; margin-right: 80px;">
+                <li class="nav-item"><a href="index.html" class="nav-link px-2">Home</a></li>
+                <li class="nav-item"><a href="all_books.html" class="nav-link px-2">View Listings</a></li>
+                <li class="nav-item"><a href="sell_form.html" class="nav-link px-2">Sell a Book</a></li>
+                <li class="nav-item"><a href="account.html" class="nav-link px-2">Account</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link px-2">About</a></li>
+            </ul>
         </div>
-      </footer>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
+
+    <script>
+        function revealEmail() {
+            var e = document.getElementById('email')
+        if( e.style.display != "inline"){
+            var temp = confirm("Confirm that you are not a bot");
+            if(temp){
+                e.style.display = "inline"
+            }
+        }
+
+        }
+    </script>
+
+    <script>
+        function disclaimerFunction() {
+            alert("Maybe we will actually make a shopping cart!");
+        }
+    </script>
+
 
 </body>
 
