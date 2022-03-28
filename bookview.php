@@ -36,37 +36,7 @@ For email button
 
 <body>
     <header>
-        <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-            <div class="container">
-              <a class="navbar-brand" href="./index.html">
-                <img class="logo" src="https://crossler.salkeiz.k12.or.us/wp-content/uploads/sites/3/2020/09/textbook.png" alt="books"></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="nav bar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" href="./all_books.html">View Listings</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" href="./sell_form.html">Sell a Book</a>
-                  </li>
-                </ul>
-                <form class="d-flex">
-                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                  <button class="btn btn-outline-primary" type="submit">Search</button>
-                </form>
-                <div id="login-button" style="margin-left: 15px; float:right;             ">
-                    <a href="./login.html" class="btn btn-outline-primary">
-                        Login
-                    </a>
-                </div>
-              </div>
-            </div>
-          </nav>
+        <?php include("templates/nav.php"); ?>
         <div id="main-header" style="text-align: center;">
             <h1>CS4640 Project: Online Textbook Shop</h1>
         </div>
@@ -179,19 +149,7 @@ For email button
 
 
 
-    <footer id="sticky-footer" class="flex-shrink-0 align-items-center py-3 my-4 border-top">
-        <div class="text-center">
-            <p class="col-md-4 mb-0 text-muted" style="float: left;">&copy; CS4640: Luke Britton, Maxim Gorodchanin</p>
-
-            <ul class="nav col-md-4 justify-content-end" style="float: right; margin-right: 80px;">
-                <li class="nav-item"><a href="index.html" class="nav-link px-2">Home</a></li>
-                <li class="nav-item"><a href="all_books.html" class="nav-link px-2">View Listings</a></li>
-                <li class="nav-item"><a href="sell_form.html" class="nav-link px-2">Sell a Book</a></li>
-                <li class="nav-item"><a href="account.html" class="nav-link px-2">Account</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link px-2">About</a></li>
-            </ul>
-        </div>
-    </footer>
+    <?php include("templates/footer.php"); ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"

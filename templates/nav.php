@@ -16,7 +16,7 @@
             <header>               
             <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
-                    <a class="navbar-brand" href="./index.html">
+                    <a class="navbar-brand" href="./index.php">
                         <img class="logo" src="https://crossler.salkeiz.k12.or.us/wp-content/uploads/sites/3/2020/09/textbook.png" alt="books"></a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="nav bar-toggler-icon"></span>
@@ -24,13 +24,13 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                            <a class="nav-link active" aria-current="page" href="./index.php">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="./all_books.html">View Listings</a>
+                            <a class="nav-link active" href="./all_books.php">View Listings</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="./sell_form.html">Sell a Book</a>
+                            <a class="nav-link active" href="./sell_form.php">Sell a Book</a>
                         </li>
                         </ul>
                         <form class="d-flex">
@@ -38,7 +38,7 @@
                         <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
                         <div id="login-button" style="margin-left: 15px; float:right">
-                            <a href="./login.html" class="btn btn-outline-primary">
+                            <a href="./login.php" class="btn btn-outline-primary">
                                 Login
                             </a>
                         </div>
