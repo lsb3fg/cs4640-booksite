@@ -19,7 +19,7 @@
      </head>  
      <body>
          <header>
-            <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+            <!-- <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
                 <div class="container">
                   <a class="navbar-brand" href="./index.html">
                     <img class="logo" src="https://crossler.salkeiz.k12.or.us/wp-content/uploads/sites/3/2020/09/textbook.png" alt="books"></a>
@@ -49,7 +49,8 @@
                     </div>
                   </div>
                 </div>
-              </nav>
+              </nav> -->
+              <?php include("templates/nav.php"); ?>
               <div id="main-header" style="text-align: center; margin-bottom: 25px;">
                 <h1>CS4640 Project: Online Textbook Shop</h1>
               </div>
