@@ -47,21 +47,25 @@
     margin-right: 15px;
 }
 
-/* .footer {
-     position: absolute;
+.footer {
+    /* position: absolute;
     width: 100%;
     left: 0;
-    bottom: 0; */
-    /* display: flex; */
-    /* justify-content: center;
-    align-items: center; 
-} */
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;  */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;   
+}
 
 html, body{ height:100%;  }
 
 
 body{
-    height: 100%;
+    /* height: 100%; */
     background-color: #fbfbf2;
     display: flex;
     flex-direction: column;
@@ -71,10 +75,7 @@ body{
 .nav-item a{
     color:#096af9
 }
-/* footer{
-  margin-top:auto; 
-  flex-shrink: 0;
-} */
+
 
 footer div p{
     padding-left: 20px;
@@ -97,6 +98,7 @@ footer div p{
 
 .footer a{
     text-decoration: underline;
+    color:#0869f8
 }
 
 .page-wrap{
@@ -104,8 +106,22 @@ footer div p{
     flex: 1 0 auto;
     justify-content: center;
     align-items: center;
-    min-height: 100%;
+    /* min-height: 100%; */
     
+}
+
+#page-container {
+    position: relative;
+    min-height: 70vh;
+}
+
+#page-container-account {
+    position: relative;
+    min-height: 65vh;
+}
+  
+#content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
 }
 
 #card-view{
@@ -117,15 +133,6 @@ footer div p{
     margin: 25px;
 }
 
-.page-wrap-account{
-    display: flex;
-    flex: 1 0 auto;
-    justify-content: center;
-    align-items: center;
-    min-height: 100%;
-    
-}
-
 .login-card{
     margin: 20px;
 }
@@ -133,8 +140,6 @@ footer div p{
 .card-header{
     text-align: left;
 }
-
-
 
 .form{
     text-align: left;
@@ -149,11 +154,10 @@ h1 {
     animation-duration: 4s;
   }
   
-  @keyframes colorchange {
+@keyframes colorchange {
     from {color: #232d4b;}
-    to {color: #dd6e02
-        ;}
-  }
+    to {color: #dd6e02;}
+}
 
   #book-image{
     max-width:100%;
@@ -215,9 +219,7 @@ h1 {
 #login-button a{
    color:#298aff;
 }
-a{
-    color:#0869f8
-}
+
 
 .d-flex .btn{
     color:#2f9d6a;
