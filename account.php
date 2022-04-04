@@ -65,7 +65,7 @@ if(isset($_GET["task"])){
              
          </header>
         <h2 style="text-align: center">Fill out the fields to update/edit your account information.</h2>
-        <div class="page-wrap align-items-start">
+        <div class="page-wrap align-items-start" id="page-container-account">
        
             <!-- <div style="justify-content: center"> -->
                 <div class="card col-md-4">

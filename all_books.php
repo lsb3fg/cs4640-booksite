@@ -17,7 +17,7 @@
 <body>
   <?php include("templates/nav.php"); ?>
     <div>
-        <h2 style="text-align: center; margin-top: 15px;">Showing results for: "all"</h2>
+        <h2 style="text-align: center; margin-top: 15px; margin-bottom: 25px;">Showing results for: "all"</h2>
     </div>
     <div style="display:flex; flex-wrap: wrap">
         <?php include ("templates/book_item.php") ?>
@@ -31,3 +31,4 @@
 
     <?php include("templates/footer.php"); ?>
 </body>
+</html>

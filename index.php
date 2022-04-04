@@ -23,8 +23,10 @@
              
          </header>
 
-         <div class="page-wrap">
-            
+         <div id="page-container">
+            <div id="content-wrap">
+
+            </div>
          </div>
 
          <?php include("templates/footer.php"); ?>

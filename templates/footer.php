@@ -12,7 +12,7 @@
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
          <link rel="stylesheet" type="text/css" href="./styles/main.css" />
     </head>  
-        <body>
+
         <footer id="sticky-footer" class="flex-shrink-0 align-items-center py-3 my-4 border-top">
             <div class="text-center">
               <p class="col-md-4 mb-0 text-muted" style="float: left;">&copy; CS4640: Luke Britton, Maxim Gorodchanin</p>
@@ -26,5 +26,5 @@
               </ul>
             </div>
           </footer>    
-    </body>
+
 </html>
