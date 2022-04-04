@@ -100,7 +100,7 @@ For email button
                     <div class="col-md-6 ">
                         <div id="description">
                             <h6 class="card-subtitle mb-2 text-justify text-center " id="price"> $119.99</h6>
-                            <span>Seller: <a href="accountpage.html">John Doe</a></span> <br>
+                            <span>Seller: <a href="account.php">John Doe</a></span> <br>
 
 
                             <span>Email: <a id="email" style="display: none;"

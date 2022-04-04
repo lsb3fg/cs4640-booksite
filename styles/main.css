@@ -47,15 +47,15 @@
     margin-right: 15px;
 }
 
-.footer {
-    /* position: absolute;
+/* .footer {
+     position: absolute;
     width: 100%;
     left: 0;
     bottom: 0; */
     /* display: flex; */
     /* justify-content: center;
-    align-items: center; */
-}
+    align-items: center; 
+} */
 
 html, body{ height:100%;  }
 
@@ -108,12 +108,30 @@ footer div p{
     
 }
 
+#card-view{
+    margin: 50px
+
+}
+
+.page-wrap-account{
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    
+}
+
 .login-card{
     margin: 20px;
 }
 
 .card-header{
     text-align: left;
+}
+
+.card-body{
+    background-color: #232D4B;
 }
 
 .form{

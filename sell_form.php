@@ -34,7 +34,7 @@
                         </div>
                         <div class="card-body col-md-12 form">
                             
-                            <form id="sell-form" action="./list_book.php">
+                            <form method="post" id="sell-form" action="list_book.php">
                                 <label for="title">Title:</label><br>
                                 <input type="text" id="title" name="title" placeholder="Title" required><br>
                                 <label for="author">Author:</label><br>

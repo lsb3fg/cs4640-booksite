@@ -32,6 +32,9 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="./sell_form.php">Sell a Book</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="./account.php">Create/Edit Account</a>
+                        </li>
                         </ul>
                         <form class="d-flex">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

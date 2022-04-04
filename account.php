@@ -13,17 +13,44 @@
          <link rel="stylesheet" type="text/css" href="./styles/main.css" />
 </head>  
      <body>
-         <header>
-          <?php include("templates/nav.php"); ?>
-              <div id="main-header" style="text-align: center;">
-                <h1>CS4640 Project: Online Textbook Shop</h1>
-              </div>
+        <header>
+            <?php include("templates/nav.php"); ?>
+            <div id="main-header" style="text-align: center;">
+            <h1>CS4640 Project: Online Textbook Shop</h1>
+            </div>
              
          </header>
-
-         <div class="page-wrap">
-            <h3>This will serve as the page to create/edit an account.</h3>
-         </div>
+        <h2 style="text-align: center">Fill out the fields to update/edit your account information.</h2>
+        <div class="page-wrap align-items-start">
+       
+            <!-- <div style="justify-content: center"> -->
+                <div class="card col-md-4">
+                    <div class="card-header">
+                        <h4>Update info</h4>
+                    </div>
+                    <div class="card-body col-md-12">  
+                        <form id="sell-form1" action="./update_user.php">
+                            <label for="fname">First Name:</label><br>
+                            <input type="text" id="fname" name="fname" placeholder="First" required><br>
+                            <label for="lname">Last Name:</label><br>
+                            <input type="text" id="lname" name="lname" placeholder="Last" required><br>  
+                            <label for="nickname">Nickname/Username:</label><br>
+                            <input type="text" id="nickname" name="fname" placeholder="Nickname" required><br>
+                            <label for="email">Email:</label><br>
+                            <input type="email" id="email" name="email" placeholder="Email" required><br> 
+                            <label for="phone">Phone:</label><br>
+                            <input type="tel" id="phone" name="phone" placeholder="Number" required><br>  
+                            <!-- <button class="btn btn-primary btn-block" type="submit">Submit</button>                        -->
+                        
+                    </div>
+                    <div class="card-footer" style="text-align: right;">
+                        <button type="submit" class="btn btn-primary" onclick="submitForm()">Submit</button>
+                    </div>  
+                    </form>
+                </div>  
+            <!-- </div>  -->
+        </div>
+        
 
          
 
