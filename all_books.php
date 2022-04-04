@@ -17,43 +17,15 @@
 <body>
   <?php include("templates/nav.php"); ?>
     <div>
-        <h2 style="text-align: center;">For now, imagine you search up and find the book you are looking for! <br> <a href="bookview.php"> Press Here To Continue</a></h2>
+        <h2 style="text-align: center; margin-top: 15px;">Showing results for: "all"</h2>
     </div>
-    <div style="display:flex; flex-wrap: wrap;">
-        <div class="card col-md-4" id="card-view">
-            <div class="card-header">
-                <h5 class="card-title text-justify text-center " id="book-title">Book title</h5>
-                <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="book-author">By Book
-                    Author</h6>
-                <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="publish-date">Published
-                    2023(first edition)</h6>
-            </div>
-            <div class="card-body col-md-12">  
-                <img src="https://dictionary.cambridge.org/us/images/thumb/book_noun_001_01679.jpg?version=5.0.213" class="float-center w-100 ml-10 mr-10 book-image"
-                                    alt="picture of book" style="  
-                                        min-width: 150px; height: 250px;">
-            </div>
-            <div class="card-footer" style="text-align: right;">
-                <button type="submit" class="btn btn-primary">View</button>
-            </div>  
-        </div>
-        <div class="card col-md-4" id="card-view" >
-            <div class="card-header">
-                <h5 class="card-title text-justify text-center " id="book-title">Book title</h5>
-                <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="book-author">By Book
-                    Author</h6>
-                <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="publish-date">Published
-                    2023(first edition)</h6>
-            </div>
-            <div class="card-body col-md-12">  
-                <img src="https://dictionary.cambridge.org/us/images/thumb/book_noun_001_01679.jpg?version=5.0.213" class="float-center w-100 ml-10 mr-10 book-image"
-                                    alt="picture of book" style="  
-                                        min-width: 150px; height: 250px;">
-            </div>
-            <div class="card-footer" style="text-align: right;">
-                <button type="submit" class="btn btn-primary">View</button>
-            </div>  
-        </div>
+    <div style="display:flex; flex-wrap: wrap">
+        <?php include ("templates/book_item.php") ?>
+        <?php include ("templates/book_item.php") ?>
+        <?php include ("templates/book_item.php") ?>
+        <?php include ("templates/book_item.php") ?>
+        <?php include ("templates/book_item.php") ?>
+        <?php include ("templates/book_item.php") ?>
     </div>
 
 

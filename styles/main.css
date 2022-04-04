@@ -113,6 +113,10 @@ footer div p{
 
 }
 
+#book-item{
+    margin: 25px;
+}
+
 .page-wrap-account{
     display: flex;
     flex: 1 0 auto;
@@ -130,9 +134,7 @@ footer div p{
     text-align: left;
 }
 
-.card-body{
-    background-color: #232D4B;
-}
+
 
 .form{
     text-align: left;
