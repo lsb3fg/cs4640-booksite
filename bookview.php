@@ -1,3 +1,47 @@
+<?php
+
+spl_autoload_register(function($classname) {
+    include "classes/$classname.php";
+});
+
+$db = new Database();
+session_start();
+
+
+if(!isset($_GET["id"])){
+
+
+include("booknotfound.php");
+
+}
+
+else{
+
+    $data = $db->query("select * from books where id = ?;","i",$_GET["id"]);
+    if($data===false){
+        print("SQL ERROR");
+    } else if (!empty($data)){
+        $book = $data[0];
+
+    $data = $db->query("select * from users where id = ?;","i",$book["seller"]);
+        if($data===false){
+            print("SQL ERROR");
+        } else{
+
+            $user=$data[0];
+        }
+
+
+
+
+
+
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,11 +98,9 @@ For email button
 
 
                     <div class="col-md-6">
-                        <h5 class="card-title text-justify text-center " id="book-title">Book title</h5>
-                        <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="book-author">By Book
-                            Author</h6>
-                        <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="publish-date">Published
-                            2023(first edition)</h6>
+                        <h5 class="card-title text-justify text-center " id="book-title"><?=$book["title"]?></h5>
+                        <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="book-author">By <?=$book["author"]?></h6>
+                        <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="publish-date">Edition:<?=$book["edition"]?></h6>
                         <!-- MF IMAGE CAROUSEL -->
                         <div id="bookslides" class="carousel slide" data-bs-ride="carousel">
                             <ol class="carousel-indicators">
@@ -69,13 +111,13 @@ For email button
 
                                 <div class="carousel-item active" style=" overflow: hidden;">
 
-                                    <img src="https://dictionary.cambridge.org/us/images/thumb/book_noun_001_01679.jpg?version=5.0.213" class="float-center w-100 ml-10 mr-10 book-image"
+                                    <img src="<?=$book["imagelink"]?>" class="float-center w-100 ml-10 mr-10 book-image"
                                         alt="picture of book" style="  
                                             min-width: 200px; height: 300px;">
                                 </div>
 
                                 <div class="carousel-item" style=" overflow: hidden;">
-                                    <img src="https://www.collinsdictionary.com/images/full/book_181404689_1000.jpg" class="float-center w-100 ml-10 mr-10 book-image"
+                                    <img src="<?=$book["imagelink"]?>" class="float-center w-100 ml-10 mr-10 book-image"
                                         alt="an alternative image of a book" style=" 
                                             min-width: 200px; height: 300px;">
                                 </div>
@@ -99,21 +141,21 @@ For email button
                     </div>
                     <div class="col-md-6 ">
                         <div id="description">
-                            <h6 class="card-subtitle mb-2 text-justify text-center " id="price"> $119.99</h6>
-                            <span>Seller: <a href="account.php">John Doe</a></span> <br>
+                            <h6 class="card-subtitle mb-2 text-justify text-center " id="price"> $<?=$book["price"]?></h6>
+                            <span>Seller: <a href="account.php"><?=$user["firstname"]?> <?=$user["lastname"]?></a></span> <br>
 
 
                             <span>Email: <a id="email" style="display: none;"
-                                    href="mailto:johndoe@virgnia.edu">johndoe@virginia.edu</a> <button
+                                    href="mailto:johndoe@virgnia.edu"><?=$user["email"]?></a> <button
                                     onclick="revealEmail()">Reveal Email</button></span> <br>
 
                             <hr class="solid">
-                            <span>Title: Book title</span> <br>
-                            <span>ISBN: 12345678</span> <br>
-                            <span>Author(s): Book Author</span> <br>
-                            <span>Condition: Used</span> <br>
+                            <span>Title: <?=$book["title"]?></span> <br>
+                            <span>ISBN: <?=$book["isbn"]?></span> <br>
+                            <span>Author(s): <?=$book["author"]?></span> <br>
+                            <span>Condition: <?=$book["quality"]?></span> <br>
                             <hr class="solid">
-                            <span>Related Classes: Intro To Books (LIT1), Literature 101 (LIT101), Beekeeping (BK123)
+                            <span><?=$book["classes"]?>
                             </span> <br>
                             <hr class="solid">
                             <span> <a href="search.html">Find Other Sellers</a></span> <br>
@@ -178,3 +220,9 @@ For email button
 </body>
 
 </html>
+<?php
+}else{
+    include("booknotfound.php");
+}
+}
+?>
