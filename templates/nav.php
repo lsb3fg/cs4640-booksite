@@ -42,8 +42,25 @@
                         </form>
                         <div id="login-button" style="margin-left: 15px; float:right">
                             <a href="./login.php" class="btn btn-outline-primary">
-                                Login
+                                <?php 
+                                    if(isset($_SESSION["email"])){
+                                        echo "Logout";
+                                    }else{
+                                        echo "Login";
+                                    }
+                                    
+
+                                ?>
                             </a>
+                        </div>
+                        <div style="color: white">
+                            <?php 
+                                if(isset($_SESSION["email"])){
+                                    echo "Hello " . $_SESSION["email"];  
+                                }
+                                echo "";
+                            
+                            ?>
                         </div>
                 </div>
             </nav>

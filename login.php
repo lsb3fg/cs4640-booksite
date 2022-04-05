@@ -20,7 +20,7 @@ if(isset($_GET["command"])){
             } else if (!empty($data)){
                 if(password_verify($_POST["password"], $data[0]["passwordhash"])){
                     $_SESSION["email"] = $_POST["email"];
-                   header("Location: ");
+                    header("Location: ");
                   # print("test3");
                 }
                 else{
@@ -157,7 +157,7 @@ else{
            
                <div class="card shadow-2-strong col-md-4 bg-light" style="border-radius: 1rem;" >
                    <div class="card-body p-5 text-center">
-                        <h3>You are Already Logged in as: [insert username]</h3>
+                        <h3>You are Already Logged in as: <?= $_SESSION["email"] ?></h3>
                         <a href="?command=logout">Log Out?</a>
                         
                    </div>

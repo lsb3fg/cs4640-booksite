@@ -24,9 +24,15 @@
          </header>
 
          <div id="page-container">
-            <div id="content-wrap">
-
-            </div>
+            <?php 
+              // session_start();
+              echo $_SESSION["name"];
+              if(isset($_SESSION["name"])){
+                  echo "Hello " . $_SESSION["name"];  
+              }
+              echo "Not logged in";
+            
+            ?>
          </div>
 
          <?php include("templates/footer.php"); ?>
