@@ -15,8 +15,9 @@ else{
     $task = "update";
 }
 if(isset($_GET["task"])){
-    
+    echo $_GET["task"];
     if($_GET["task"]==="create"){
+        print("here 1");
         if(!empty($db->query("select * from users where email = ?;","s",$_POST["email"]))){
             #print("test1");
             $error_msg = "Email already registered";
@@ -25,15 +26,29 @@ if(isset($_GET["task"])){
             $insert = $db->query("insert into users (username, email, passwordhash,creationdate,firstname,lastname,nickname,phone) values (?, ?, ?, ?, ?, ?, ?, ?);", "ssssssss", $_POST["username"], $_POST["email"], password_hash($_POST["password"], PASSWORD_DEFAULT),date('Y-m-d H:i:s'),$_POST["fname"],$_POST["lname"],$_POST["nick"],$_POST["phone"]);
             if ($insert === false) {
                 #print("test1");
-        $error_msg = "Error inserting user";
-    } else {
+                $error_msg = "Error inserting user";
+            }
+        }
+    }
+    if(($task==="update")){
+        echo "here";
+        $update = $db->query("update users set username=?, email=?, passwordhash=?, firstname=?, lastname=?, nickname=?, phone=? where email=?;", "ssssssss", $_POST["username"], $_POST["email"], password_hash($_POST["password"], PASSWORD_DEFAULT),$_POST["fname"],$_POST["lname"],$_POST["nick"],$_POST["phone"], $_SESSION["email"]);
+        if ($update === false) {
+            #print("test1");
+            $error_msg = "Error updating user";
+        }
+        else {
+            header("Location: index.php");
+        }
+        
+    }
+     else { 
        # print("test3");
         $_SESSION["email"] = $_POST["email"];
         header("Location: index.php");
-    }
-        }
-    }
+            }
 }
+
 ?>
 
 

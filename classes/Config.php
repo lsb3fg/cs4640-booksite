@@ -5,6 +5,6 @@ class Config {
         "host" => "localhost",
         "user" => "root",
         "pass" => "",
-        "database" => "bookfinder"
+        "database" => "lsb3fg"
     ];
 }
