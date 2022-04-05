@@ -20,7 +20,7 @@ if(isset($_GET["command"])){
             } else if (!empty($data)){
                 if(password_verify($_POST["password"], $data[0]["passwordhash"])){
                     $_SESSION["email"] = $_POST["email"];
-                   header("Location: ");
+                    header("Location: ");
                   # print("test3");
                 }
                 else{
