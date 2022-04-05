@@ -1,3 +1,25 @@
+
+<?php
+
+spl_autoload_register(function($classname) {
+    include "classes/$classname.php";
+});
+
+$db = new Database();
+session_start();
+
+
+$data = $db->query("select * from books;");
+
+if($data===false){
+    print("SQL ERROR");
+} else {
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     
@@ -20,15 +42,25 @@
         <h2 style="text-align: center; margin-top: 15px; margin-bottom: 25px;">Showing results for: "all"</h2>
     </div>
     <div style="display:flex; flex-wrap: wrap">
-        <?php include ("templates/book_item.php") ?>
-        <?php include ("templates/book_item.php") ?>
-        <?php include ("templates/book_item.php") ?>
-        <?php include ("templates/book_item.php") ?>
-        <?php include ("templates/book_item.php") ?>
-        <?php include ("templates/book_item.php") ?>
+        <?php
+        for($i = 0; $i < count($data);$i++){
+            $book = $data[$i];
+            $id=$book["id"];
+            $title=$book["title"];
+            $edition=$book["edition"];
+            $url = $book["imagelink"];
+
+            include ("templates/book_item.php");
+        }
+        
+        
+        ?>
+
     </div>
 
 
     <?php include("templates/footer.php"); ?>
 </body>
 </html>
+
+<?php } ?>
