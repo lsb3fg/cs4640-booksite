@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
  <html lang="en">
    <!-- Sources:
@@ -26,11 +30,13 @@
          <div id="page-container">
             <?php 
               // session_start();
-              echo $_SESSION["name"];
-              if(isset($_SESSION["name"])){
-                  echo "Hello " . $_SESSION["name"];  
+              if(isset($_SESSION["email"])){
+                  echo "Hello " . $_SESSION["email"];  
               }
-              echo "Not logged in";
+              else{
+                echo "Not logged in";
+              }
+              
             
             ?>
          </div>
