@@ -29,7 +29,6 @@ if(isset($_GET["task"])){
     } else {
        # print("test3");
         $_SESSION["email"] = $_POST["email"];
-        $_SESSION["name"] = $_POST["name"];
         header("Location: index.php");
     }
         }

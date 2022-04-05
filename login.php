@@ -157,7 +157,14 @@ else{
            
                <div class="card shadow-2-strong col-md-4 bg-light" style="border-radius: 1rem;" >
                    <div class="card-body p-5 text-center">
-                        <h3>You are Already Logged in as: <?= $_SESSION["email"] ?></h3>
+                        <h3>You are Already Logged in as: <?php 
+                        $data = $db->query("select username from users where email = ?;","s",$_SESSION["email"]);
+                        if($data===false){
+                            $error_msg = "SQL ERROR";
+                        } else if (!empty($data)){
+                            echo $data[0]["username"];
+                        }
+                        ?></h3>
                         <a href="?command=logout">Log Out?</a>
                         
                    </div>
