@@ -28,7 +28,7 @@ else{
             $error_msg = "Error creating sale";
         } else {
             print($insert);
-            header("Location: bookview?id=$insert");
+            header("Location: all_books.php");
         }
     }
     }
@@ -125,13 +125,13 @@ else{
                                 <label for="use-profile">Use Profile Info:</label>
                                 <input type="checkbox" name="use-profile" id="use-profile"><br><br>
                                 <label for="fname">First Name:</label><br>
-                                <input type="text" id="fname" name="fname" placeholder="First" required><br>
+                                <input type="text" id="fname" name="fname" placeholder="First" ><br>
                                 <label for="lname">Last Name:</label><br>
-                                <input type="text" id="lname" name="lname" placeholder="Last" required><br>  
+                                <input type="text" id="lname" name="lname" placeholder="Last" ><br>  
                                 <label for="email">Email:</label><br>
-                                <input type="email" id="email" name="email" placeholder="Email" required><br> 
+                                <input type="email" id="email" name="email" placeholder="Email" ><br> 
                                 <label for="phone">Phone:</label><br>
-                                <input type="tel" id="phone" name="phone" placeholder="Number" required><br>                         
+                                <input type="tel" id="phone" name="phone" placeholder="Number" ><br>                         
 
                         </div>  
                     </div>   
