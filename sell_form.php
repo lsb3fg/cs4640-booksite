@@ -8,7 +8,8 @@ $db = new Database();
 session_start();
 
 if (!isset($_SESSION["email"])) {
-    print("login error");
+    header("Location: index.php?errormsg=Not Logged In");
+
 }
 else{
     if(isset($_GET["command"])){
@@ -22,13 +23,13 @@ else{
                         
             $insert = $db->query("insert into books (seller, price, title,author,edition,isbn,classes,imagelink,description,quality,dateadded) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
              "sdsssssssss",
-              $userid, $_POST["price"], $_POST["title"],$_POST["author"],$_POST["edition"],$_POST["isbn"],$_POST["classes"],$_POST["imagelink"],$_POST["description"],$_POST["quality"],date('Y-m-d H:i:s'));
+              $userid, strip_tags($_POST["price"]), strip_tags($_POST["title"]),strip_tags($_POST["author"]),strip_tags($_POST["edition"]),strip_tags($_POST["isbn"]),strip_tags($_POST["classes"]),strip_tags($_POST["imagelink"]),strip_tags($_POST["description"]),strip_tags($_POST["quality"]),date('Y-m-d H:i:s'));
             if ($insert === false) {
                     #print("test1");
             $error_msg = "Error creating sale";
         } else {
             print($insert);
-            header("Location: bookview?id=$insert");
+            header("Location: all_books.php");
         }
     }
     }
@@ -125,13 +126,13 @@ else{
                                 <label for="use-profile">Use Profile Info:</label>
                                 <input type="checkbox" name="use-profile" id="use-profile"><br><br>
                                 <label for="fname">First Name:</label><br>
-                                <input type="text" id="fname" name="fname" placeholder="First" required><br>
+                                <input type="text" id="fname" name="fname" placeholder="First" ><br>
                                 <label for="lname">Last Name:</label><br>
-                                <input type="text" id="lname" name="lname" placeholder="Last" required><br>  
+                                <input type="text" id="lname" name="lname" placeholder="Last" ><br>  
                                 <label for="email">Email:</label><br>
-                                <input type="email" id="email" name="email" placeholder="Email" required><br> 
+                                <input type="email" id="email" name="email" placeholder="Email" ><br> 
                                 <label for="phone">Phone:</label><br>
-                                <input type="tel" id="phone" name="phone" placeholder="Number" required><br>                         
+                                <input type="tel" id="phone" name="phone" placeholder="Number" ><br>                         
 
                         </div>  
                     </div>   

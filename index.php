@@ -1,6 +1,17 @@
 <?php
 session_start();
+
+
+if (isset($_GET["errormsg"])) {
+
+  $error_msg = $_GET["errormsg"];
+
+}
+
 ?>
+
+
+
 
 <!DOCTYPE html>
  <html lang="en">
@@ -30,12 +41,22 @@ session_start();
          <div id="page-container">
             <?php 
               // session_start();
-              if(isset($_SESSION["email"])){
+
+
+              if (!empty($error_msg)) {
+                #  print("test5");
+                echo "<div class='alert alert-danger'> ERROR: $error_msg</div>";
+            }
+
+
+             else if(isset($_SESSION["email"])){
                   echo "Hello " . $_SESSION["email"];  
               }
               else{
                 echo "Not logged in";
               }
+
+
               
             
             ?>
