@@ -101,6 +101,8 @@ For email button
                         <h5 class="card-title text-justify text-center " id="book-title"><?=$book["title"]?></h5>
                         <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="book-author">By <?=$book["author"]?></h6>
                         <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="publish-date">Edition:<?=$book["edition"]?></h6>
+                        <?php
+                        if($book["imagelink"]!== ""){?>
                         <!-- MF IMAGE CAROUSEL -->
                         <div id="bookslides" class="carousel slide" data-bs-ride="carousel">
                             <ol class="carousel-indicators">
@@ -134,6 +136,11 @@ For email button
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
+                        <?php }
+                        else{
+                            echo "<p>No image!</p>";
+                        }
+                        ?>
 
 
 

@@ -97,6 +97,12 @@ if (isset($_GET["task"])) {
                     }
                 }
 
+                if(!preg_match('[/(^([0-9]-)?[0-9]{3}-[0-9]{3}-[0-9]{4}$)]', $_POST["phone"])){
+                    $error_msg = "Phone must be formatted as XXX-XXX-XXX or X-XXX-XXX-XXXX";
+                    
+                }
+                else{
+
 
 
                 $update = $db->query("update users set username=?, email=?, passwordhash=?, firstname=?, lastname=?, nickname=?, phone=? where email=?;", "ssssssss", strip_tags($_POST["username"]), strip_tags($_POST["email"]), strip_tags(password_hash($_POST["password"], PASSWORD_DEFAULT)), strip_tags($_POST["fname"]),strip_tags( $_POST["lname"]),strip_tags( $_POST["nick"]), strip_tags($_POST["phone"]), strip_tags($_SESSION["email"]));
@@ -106,14 +112,17 @@ if (isset($_GET["task"])) {
                 } else {
                     header("Location: index.php");
                 }
-            } else {
+            } 
+        }else {
                 # print("test3");
                 $_SESSION["email"] = $_POST["email"];
                 header("Location: index.php");
             }
+            
         }
     }
 }
+
 
 ?>
 
