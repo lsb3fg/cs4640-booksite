@@ -22,7 +22,7 @@ else{
                         
             $insert = $db->query("insert into books (seller, price, title,author,edition,isbn,classes,imagelink,description,quality,dateadded) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
              "sdsssssssss",
-              $userid, $_POST["price"], $_POST["title"],$_POST["author"],$_POST["edition"],$_POST["isbn"],$_POST["classes"],$_POST["imagelink"],$_POST["description"],$_POST["quality"],date('Y-m-d H:i:s'));
+              $userid, strip_tags($_POST["price"]), strip_tags($_POST["title"]),strip_tags($_POST["author"]),strip_tags($_POST["edition"]),strip_tags($_POST["isbn"]),strip_tags($_POST["classes"]),strip_tags($_POST["imagelink"]),strip_tags($_POST["description"]),strip_tags($_POST["quality"]),date('Y-m-d H:i:s'));
             if ($insert === false) {
                     #print("test1");
             $error_msg = "Error creating sale";
