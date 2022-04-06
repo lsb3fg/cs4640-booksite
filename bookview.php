@@ -142,7 +142,10 @@ For email button
                     <div class="col-md-6 ">
                         <div id="description">
                             <h6 class="card-subtitle mb-2 text-justify text-center " id="price"> $<?=$book["price"]?></h6>
-                            <span>Seller: <a href="account.php"><?=$user["firstname"]?> <?=$user["lastname"]?></a></span> <br>
+                            <span>Seller: <a href="account.php"><?=$user["firstname"]?> <?=$user["lastname"]?> <?php if(!isset($user["firstname"])&&!isset($user["lastname"])){
+                                echo $user["username"];
+                                }
+                                ?></a></span> <br>
 
 
                             <span>Email: <a id="email" style="display: none;"
@@ -160,7 +163,7 @@ For email button
                             <hr class="solid">
                             <span> <a href="search.html">Find Other Sellers</a></span> <br>
                             <hr class="solid">
-                            <button onclick="disclaimerFunction()">Add to Cart!</button>
+                            <button onclick="location.href='./message.php?id=<?=$book['id']?>'">Contact Seller</button>
                         </div>
                     </div>
                 </div>

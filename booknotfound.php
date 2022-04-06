@@ -24,6 +24,8 @@
                 <h1>CS4640 Project: Online Textbook Shop</h1>
               </div>
              
+
+              
          </header>
 
          <div id="page-container">

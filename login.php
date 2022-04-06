@@ -37,6 +37,7 @@ if(isset($_GET["command"])){
     }
     if($_GET["command"]==="logout"){
         session_destroy();
+        header("Location: /");
     }
 }
 
