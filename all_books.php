@@ -42,7 +42,7 @@ if($data===false){
         <h2 style="text-align: center; margin-top: 15px; margin-bottom: 25px;">Showing results for: "all"</h2>
     </div>
 
-    <div id="page-container">
+    <div class ="page-wrap" id="page-container-account">
         <div style="display:flex; flex-wrap: wrap">
             <?php
             for($i = 0; $i < count($data);$i++){
@@ -52,6 +52,11 @@ if($data===false){
                 $edition=$book["edition"];
                 $url = $book["imagelink"];
 
+                include ("templates/book_item.php");
+                include ("templates/book_item.php");
+                include ("templates/book_item.php");
+                include ("templates/book_item.php");
+                include ("templates/book_item.php");
                 include ("templates/book_item.php");
             }
             

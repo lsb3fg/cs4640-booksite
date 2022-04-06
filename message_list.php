@@ -55,22 +55,25 @@ if($data===false){
     <div>
         <h2 style="text-align: center; margin-top: 15px; margin-bottom: 25px;">Showing results for: "all"</h2>
     </div>
-    <div style="display:flex; flex-wrap: wrap">
-        <?php
-        for($i = 0; $i < count($data);$i++){
-            $message = $messages[$i];
-            $id=$message["id"];
-            $title=$message["title"];
-            $body = $message["contents"];
-            $sender= idToUser($message["sender"],$db)["username"];
 
-            include ("templates/message_item.php");
-        }
-        
-        
-        ?>
+    <div class="page-wrap" id="page-container-account">
+        <div style="display:flex; flex-wrap: wrap">
+            <?php
+            for($i = 0; $i < count($data);$i++){
+                $message = $messages[$i];
+                $id=$message["id"];
+                $title=$message["title"];
+                $body = $message["contents"];
+                $sender= idToUser($message["sender"],$db)["username"];
 
-    </div>
+                include ("templates/message_item.php");
+            }
+            
+            
+            ?>
+
+        </div>
+    </div> 
 
 
     <?php include("templates/footer.php"); ?>
