@@ -38,6 +38,7 @@ if(isset($_GET["task"])){
             $error_msg = "Error updating user";
         }
         else {
+            $_SESSION["email"] = $_POST["email"];
             header("Location: index.php");
         }
         

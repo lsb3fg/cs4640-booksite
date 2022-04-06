@@ -41,22 +41,26 @@ if($data===false){
     <div>
         <h2 style="text-align: center; margin-top: 15px; margin-bottom: 25px;">Showing results for: "all"</h2>
     </div>
-    <div style="display:flex; flex-wrap: wrap">
-        <?php
-        for($i = 0; $i < count($data);$i++){
-            $book = $data[$i];
-            $id=$book["id"];
-            $title=$book["title"];
-            $edition=$book["edition"];
-            $url = $book["imagelink"];
 
-            include ("templates/book_item.php");
-        }
-        
-        
-        ?>
+    <div id="page-container">
+        <div style="display:flex; flex-wrap: wrap">
+            <?php
+            for($i = 0; $i < count($data);$i++){
+                $book = $data[$i];
+                $id=$book["id"];
+                $title=$book["title"];
+                $edition=$book["edition"];
+                $url = $book["imagelink"];
 
+                include ("templates/book_item.php");
+            }
+            
+            
+            ?>
+
+        </div>
     </div>
+        
 
 
     <?php include("templates/footer.php"); ?>

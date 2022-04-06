@@ -215,6 +215,7 @@ h1 {
 .logo{
     height: 40px;
     width: 60px;
+    border-radius: 4%;
 }
 #login-button a{
    color:#298aff;
