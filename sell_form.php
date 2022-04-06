@@ -8,7 +8,8 @@ $db = new Database();
 session_start();
 
 if (!isset($_SESSION["email"])) {
-    print("login error");
+    header("Location: index.php?errormsg=Not Logged In");
+
 }
 else{
     if(isset($_GET["command"])){

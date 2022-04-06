@@ -30,40 +30,40 @@ if (isset($_GET["task"])) {
             $success2 = True;
             if (!preg_match('[/^[-a-zA-Z0-9_]+$]', $_POST["username"])) {
                 $error_msg = "Username may only contain letters, numbers, - and _";
-                $success2=False;
+                $success2 = False;
             }
             if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
                 $error_msg = "Invalid email format";
-                $success2=False;
+                $success2 = False;
             }
 
 
             if ($success2 === True) {
 
-            $optional = array("firstname", "lastname", "nickname", "phone");
+                $optional = array("firstname", "lastname", "nickname", "phone");
 
-            foreach ($optional as $i) {
-                if (!isset($_POST[$i])) {
-                    $_POST[$i] = null;
+                foreach ($optional as $i) {
+                    if (!isset($_POST[$i])) {
+                        $_POST[$i] = null;
+                    }
                 }
-            }
 
 
 
 
-            if (!empty($db->query("select * from users where email = ?;", "s", $_POST["email"]))) {
-                #print("test1");
-                $error_msg = "Email already registered";
-            } else {
-                $insert = $db->query("insert into users (username, email, passwordhash,creationdate,firstname,lastname,nickname,phone) values (?, ?, ?, ?, ?, ?, ?, ?);", "ssssssss", $_POST["username"], $_POST["email"], password_hash($_POST["password"], PASSWORD_DEFAULT), date('Y-m-d H:i:s'), $_POST["fname"], $_POST["lname"], $_POST["nick"], $_POST["phone"]);
-                if ($insert === false) {
+                if (!empty($db->query("select * from users where email = ?;", "s", $_POST["email"]))) {
                     #print("test1");
-                    $error_msg = "Error inserting user";
+                    $error_msg = "Email already registered";
+                } else {
+                    $insert = $db->query("insert into users (username, email, passwordhash,creationdate,firstname,lastname,nickname,phone) values (?, ?, ?, ?, ?, ?, ?, ?);", "ssssssss", strip_tags($_POST["username"]), strip_tags($_POST["email"]), strip_tags(password_hash($_POST["password"], PASSWORD_DEFAULT)), strip_tags(date('Y-m-d H:i:s')), strip_tags($_POST["fname"]), strip_tags($_POST["lname"]), strip_tags($_POST["nick"]),strip_tags( $_POST["phone"]));
+                    if ($insert === false) {
+                        #print("test1");
+                        $error_msg = "Error inserting user";
+                    }
                 }
             }
         }
     }
-}
     if (($task === "update")) {
 
         $success = True;
@@ -79,39 +79,39 @@ if (isset($_GET["task"])) {
             $success2 = True;
             if (!preg_match('[/^[-a-zA-Z0-9_]+$]', $_POST["username"])) {
                 $error_msg = "Username may only contain letters, numbers, - and _";
-                $success2=False;
+                $success2 = False;
             }
             if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
                 $error_msg = "Invalid email format";
-                $success2=False;
+                $success2 = False;
             }
 
 
             if ($success2 === True) {
 
-            $optional = array("firstname", "lastname", "nickname", "phone");
+                $optional = array("firstname", "lastname", "nickname", "phone");
 
-            foreach ($optional as $i) {
-                if (!isset($_POST[$i])) {
-                    $_POST[$i] = null;
+                foreach ($optional as $i) {
+                    if (!isset($_POST[$i])) {
+                        $_POST[$i] = null;
+                    }
                 }
+
+
+
+                $update = $db->query("update users set username=?, email=?, passwordhash=?, firstname=?, lastname=?, nickname=?, phone=? where email=?;", "ssssssss", strip_tags($_POST["username"]), strip_tags($_POST["email"]), strip_tags(password_hash($_POST["password"], PASSWORD_DEFAULT)), strip_tags($_POST["fname"]),strip_tags( $_POST["lname"]),strip_tags( $_POST["nick"]), strip_tags($_POST["phone"]), strip_tags($_SESSION["email"]));
+                if ($update === false) {
+                    #print("test1");
+                    $error_msg = "Error updating user";
+                } else {
+                    header("Location: index.php");
+                }
+            } else {
+                # print("test3");
+                $_SESSION["email"] = $_POST["email"];
+                header("Location: index.php");
             }
-
-
-        
-        $update = $db->query("update users set username=?, email=?, passwordhash=?, firstname=?, lastname=?, nickname=?, phone=? where email=?;", "ssssssss", $_POST["username"], $_POST["email"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["fname"], $_POST["lname"], $_POST["nick"], $_POST["phone"], $_SESSION["email"]);
-        if ($update === false) {
-            #print("test1");
-            $error_msg = "Error updating user";
-        } else {
-            header("Location: index.php");
         }
-    } else {
-        # print("test3");
-        $_SESSION["email"] = $_POST["email"];
-        header("Location: index.php");
-    }
-}
     }
 }
 
@@ -175,14 +175,14 @@ if (isset($_GET["task"])) {
                     <label for="email">Email*:</label><br>
                     <input type="email" id="email" name="email" placeholder="Email" required><br>
                     <label for="fname">First Name:</label><br>
-                    <input type="text" id="fname" name="fname" placeholder="First" ><br>
+                    <input type="text" id="fname" name="fname" placeholder="First"><br>
                     <label for="lname">Last Name:</label><br>
-                    <input type="text" id="lname" name="lname" placeholder="Last" ><br>
+                    <input type="text" id="lname" name="lname" placeholder="Last"><br>
                     <label for="nickname">Nickname/Username:</label><br>
                     <input type="text" id="nickname" name="nick" placeholder="Nickname"><br>
 
                     <label for="phone">Phone:</label><br>
-                    <input type="tel" id="phone" name="phone" placeholder="Number" ><br>
+                    <input type="tel" id="phone" name="phone" placeholder="Number"><br>
 
                     <!-- <button class="btn btn-primary btn-block" type="submit">Submit</button>                        -->
 
