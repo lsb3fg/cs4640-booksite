@@ -36,11 +36,11 @@ if (isset($_GET["command"])) {
             $insert = $db->query(
                 "insert into messages (sender, receiver,sale ,title,contents,senddate) values (?, ?, ?, ?, ?, ?);",
                 "iiisss",
-                $_POST["senderid"],
-                $_POST["receiverid"],
-                $_POST["bookid"],
-                $_POST["title"],
-                $_POST["text"],
+                strip_tags($_POST["senderid"]),
+                strip_tags($_POST["receiverid"]),
+                strip_tags($_POST["bookid"]),
+                strip_tags($_POST["title"]),
+                strip_tags($_POST["text"]),
                 date('Y-m-d H:i:s')
             );
             if ($insert === false) {
