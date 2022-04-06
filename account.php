@@ -13,7 +13,10 @@ if (!isset($_SESSION["email"])) {
 } else {
     $task = "update";
 }
+
+
 if (isset($_GET["task"])) {
+
 
     if ($_GET["task"] === "create") {
         #print("here 1");
@@ -28,7 +31,7 @@ if (isset($_GET["task"])) {
         }
         if ($success === True) {
             $success2 = True;
-            if (!preg_match('[/^[-a-zA-Z0-9_]+$]', $_POST["username"])) {
+            if (!preg_match('/^[-a-zA-Z0-9_]+$/', $_POST["username"])) {
                 $error_msg = "Username may only contain letters, numbers, - and _";
                 $success2 = False;
             }
@@ -39,19 +42,20 @@ if (isset($_GET["task"])) {
 
 
             if ($success2 === True) {
-
+ 
                 $optional = array("firstname", "lastname", "nickname", "phone");
-
+                
                 foreach ($optional as $i) {
                     if (!isset($_POST[$i])) {
                         $_POST[$i] = null;
                     }
                 }
 
-
-
-
-                if (!empty($db->query("select * from users where email = ?;", "s", $_POST["email"]))) {
+                if(!preg_match('/^([0-9]-)?[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST["phone"])){
+                    $error_msg = "Phone must be formatted as XXX-XXX-XXX or X-XXX-XXX-XXXX";
+                    
+                }
+                else if (!empty($db->query("select * from users where email = ?;", "s", $_POST["email"]))) {
                     #print("test1");
                     $error_msg = "Email already registered";
                 } else {
@@ -64,7 +68,7 @@ if (isset($_GET["task"])) {
             }
         }
     }
-    if (($task === "update")) {
+    if (($_GET["task"] === "update")) {
 
         $success = True;
         $required = array("username", "email", "password");
@@ -77,7 +81,7 @@ if (isset($_GET["task"])) {
         }
         if ($success === True) {
             $success2 = True;
-            if (!preg_match('[/^[-a-zA-Z0-9_]+$]', $_POST["username"])) {
+            if (!preg_match('/^[-a-zA-Z0-9_]+$/', $_POST["username"])) {
                 $error_msg = "Username may only contain letters, numbers, - and _";
                 $success2 = False;
             }
@@ -86,18 +90,17 @@ if (isset($_GET["task"])) {
                 $success2 = False;
             }
 
-
             if ($success2 === True) {
 
                 $optional = array("firstname", "lastname", "nickname", "phone");
-
+                
                 foreach ($optional as $i) {
                     if (!isset($_POST[$i])) {
                         $_POST[$i] = null;
                     }
                 }
 
-                if(!preg_match('[/(^([0-9]-)?[0-9]{3}-[0-9]{3}-[0-9]{4}$)]', $_POST["phone"])){
+                if(!preg_match('/^([0-9]-)?[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST["phone"])){
                     $error_msg = "Phone must be formatted as XXX-XXX-XXX or X-XXX-XXX-XXXX";
                     
                 }
@@ -116,7 +119,7 @@ if (isset($_GET["task"])) {
         }else {
                 # print("test3");
                 $_SESSION["email"] = $_POST["email"];
-                header("Location: index.php");
+                #header("Location: index.php");
             }
             
         }
