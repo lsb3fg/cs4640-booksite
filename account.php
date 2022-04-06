@@ -28,7 +28,7 @@ if (isset($_GET["task"])) {
         }
         if ($success === True) {
             $success2 = True;
-            if (!preg_match('[/^[-a-zA-Z0-9_]+$]', $_POST["username"])) {
+            if (!preg_match('/^[a-zA-Z0-9_-]/', $_POST["username"])) {
                 $error_msg = "Username may only contain letters, numbers, - and _";
                 $success2 = False;
             }
@@ -60,6 +60,8 @@ if (isset($_GET["task"])) {
                         #print("test1");
                         $error_msg = "Error inserting user";
                     }
+                    $_SESSION["email"] = $_POST["email"];
+                    header("Location: index.php");
                 }
             }
         }

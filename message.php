@@ -136,13 +136,13 @@ if ($data === false) {
 
         <div class="card text-center col-md-8" style="border: 1px solid black;">
             <div class="card-header" style="background-color: rgb(144, 245, 252);">
-                <h3>List a Book</h3>
-                <small>Fill out as many fields as possible.</small>
+                <h3>Send a message</h3>
+                <small>Contact the seller below.</small>
             </div>
             <div class="card-body">
                 <div class="card col-md-12" style="float: left;">
                     <div class="card-header">
-                        <h4>Book info</h4>
+                        <h4>Message to: <?=$seller["username"]?></h4>
                     </div>
                     <div class="card-body col-md-12 form">
 
@@ -164,6 +164,7 @@ if ($data === false) {
                         </form>
                     </div>
                 </div>
+                
 
 
                 <?php include("templates/footer.php"); ?>
