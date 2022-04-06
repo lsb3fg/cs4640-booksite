@@ -101,6 +101,7 @@ For email button
                         <h5 class="card-title text-justify text-center " id="book-title"><?=$book["title"]?></h5>
                         <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="book-author">By <?=$book["author"]?></h6>
                         <h6 class="card-subtitle mb-1 text-justify text-center text-muted" id="publish-date">Edition:<?=$book["edition"]?></h6>
+
                         <!-- MF IMAGE CAROUSEL -->
                         <div id="bookslides" class="carousel slide" data-bs-ride="carousel">
                             <ol class="carousel-indicators">
@@ -113,13 +114,13 @@ For email button
 
                                     <img src="<?=$book["imagelink"]?>" class="float-center w-100 ml-10 mr-10 book-image"
                                         alt="picture of book" style="  
-                                            min-width: 200px; height: 300px;">
+                                            min-width: 200px; height: 300px;" onerror="this.onerror=null;this.src='https://i.imgur.com/O7Wglxz.png';">
                                 </div>
 
                                 <div class="carousel-item" style=" overflow: hidden;">
                                     <img src="<?=$book["imagelink"]?>" class="float-center w-100 ml-10 mr-10 book-image"
                                         alt="an alternative image of a book" style=" 
-                                            min-width: 200px; height: 300px;">
+                                            min-width: 200px; height: 300px;" onerror="this.onerror=null;this.src='https://i.imgur.com/O7Wglxz.png';">
                                 </div>
                             </div>
 
@@ -134,6 +135,7 @@ For email button
                                 <span class="visually-hidden">Next</span>
                             </button>
                         </div>
+
 
 
 

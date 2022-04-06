@@ -12,7 +12,7 @@
             <div class="card-body col-md-12">  
                 <img src="<?=$url?>" class="float-center w-100 ml-10 mr-10 book-image"
                                     alt="picture of book" style="  
-                                        min-width: 150px; height: 250px;">
+                                        min-width: 150px; height: 250px;" onerror="this.onerror=null;this.src='https://i.imgur.com/O7Wglxz.png';">
             </div>
             <div class="card-footer" style="text-align: right;">
                 <button type="submit" class="btn btn-primary">View</button>
