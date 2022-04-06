@@ -51,7 +51,7 @@ if (isset($_GET["task"])) {
                     }
                 }
 
-                if(!preg_match('/^([0-9]-)?[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST["phone"])){
+                if(!isset($_POST["phone"]) && !preg_match('/^([0-9]-)?[0-9]{3}-[0-9]{3}-[0-9]{4}$/', $_POST["phone"])){
                     $error_msg = "Phone must be formatted as XXX-XXX-XXX or X-XXX-XXX-XXXX";
                     
                 }
