@@ -7,8 +7,8 @@ function idToUser($id,$db)
     if($data===false){
         print("SQL ERROR");
         return false;
-    } else {
+    } else if(!empty($data)){
         return $data[0];
     }
-    
+    return false;
 }
