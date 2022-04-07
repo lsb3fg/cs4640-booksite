@@ -142,7 +142,7 @@ if (!isset($_SESSION["email"])) {
                 </div>
                 <div class="card col-md-6" style="float: left;">
                     <div class="card-header">
-                        <h4>Seller info</h4>
+                        <h4>Seller info (NOT YET IMPLEMENTED)</h4>
                     </div>
                     <div class="card-body col-md-12">
 
