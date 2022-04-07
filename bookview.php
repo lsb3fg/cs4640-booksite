@@ -144,7 +144,7 @@ For email button
                     <div class="col-md-6 ">
                         <div id="description">
                             <h6 class="card-subtitle mb-2 text-justify text-center " id="price"> $<?=$book["price"]?></h6>
-                            <span>Seller: <a href="account.php"><?=$user["firstname"]?> <?=$user["lastname"]?> <?php if(!isset($user["firstname"])&&!isset($user["lastname"])){
+                            <span>Seller: <a href="account.php"><?=$user["firstname"]?> <?=$user["lastname"]?> <?php if(!isset($user["firstname"])&&!isset($user["lastname"]) || ($user["firstname"]==="" && $user["lastname"]==="")){
                                 echo $user["username"];
                                 }
                                 ?></a></span> <br>
