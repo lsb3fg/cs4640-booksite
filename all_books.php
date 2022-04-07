@@ -46,17 +46,14 @@ if($data===false){
         <div style="display:flex; flex-wrap: wrap">
             <?php
             for($i = 0; $i < count($data);$i++){
+                
                 $book = $data[$i];
                 $id=$book["id"];
+
                 $title=$book["title"];
                 $edition=$book["edition"];
                 $url = $book["imagelink"];
 
-                include ("templates/book_item.php");
-                include ("templates/book_item.php");
-                include ("templates/book_item.php");
-                include ("templates/book_item.php");
-                include ("templates/book_item.php");
                 include ("templates/book_item.php");
             }
             
