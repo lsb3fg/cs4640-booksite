@@ -49,6 +49,13 @@ if ($data === false) {
                 }
                 // alert("Searching for "+value);
                 url += "search=" + search;
+                if(search==""){
+                    $(".results").html("Showing all results:");
+                }
+                else{
+                    $(".results").html("Showing results for: "+search);
+                }
+
                 $.getJSON(url, function (data) {
                 returnedjson = data;
                 updatepage();
@@ -93,7 +100,7 @@ if ($data === false) {
     <body>
         <?php include("templates/nav.php"); ?>
         <div>
-            <h2 style="text-align: center; margin-top: 15px; margin-bottom: 25px;">Showing results for: "all"</h2>
+            <h2 style="text-align: center; margin-top: 15px; margin-bottom: 25px;" class="results">Showing all results</h2>
         </div>
 
         <div class="page-wrap" id="page-container-account">
@@ -125,11 +132,22 @@ if ($data === false) {
         <?php include("templates/footer.php"); ?>
 
         <script>
-            $("#searchbutton").bind("click", function(){search();});
-            $(document).ready(function(){
-                updatepage();
-            });
+            $("#searchbutton").attr("onclick", "search()");
 
+
+
+        <?php
+        if(isset($_GET["search"])){?>
+                    $(window).ready(function(){
+            search("<?=$_GET["search"]?>");
+                    })
+        <?php } else{ ?>
+            $(window).ready(function(){
+                updatepage();
+                    })
+
+        <?php }?>
+        
 
             
         </script>

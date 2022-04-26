@@ -1,4 +1,9 @@
 <!-- <?php session_start();?> -->
+
+
+
+
+
 <!DOCTYPE html>
  <html lang="en">
      <head>
@@ -12,6 +17,18 @@
          <meta name="keywords" content="define keywords for search engines"> 
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
          <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+         <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+         <script>
+             function outofscopesearch(){
+                var url = "all_books.php?search=";
+                var search = $("#searchvalue").val();
+                window.location.href = url+search;
+
+             }
+
+
+         </script>
     </head>  
         <body>
             <header>               
@@ -42,7 +59,7 @@
                         </ul>
 
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchvalue">
-                        <button class="btn btn-outline-success" id="searchbutton">Search</button>
+                        <button class="btn btn-outline-success" id="searchbutton" onclick="outofscopesearch()">Search</button>
 
                         <div id="login-button" style="margin-left: 15px; float:right">
                             <a href="./login.php" class="btn btn-outline-primary">
