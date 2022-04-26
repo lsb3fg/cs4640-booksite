@@ -8,5 +8,8 @@ session_start();
 
 if (!isset($_SESSION["id"])) {
     // they need to see the login
-    $command = "login";
+    
+}
+else{
+    $db
 }

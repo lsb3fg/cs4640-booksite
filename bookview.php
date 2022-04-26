@@ -163,7 +163,7 @@ For email button
                             <span><?=$book["classes"]?>
                             </span> <br>
                             <hr class="solid">
-                            <span> <a href="search.html">Find Other Sellers</a></span> <br>
+                            <span> <a href="all_books.php?search=<?=$book["title"]?>">Find Other Sellers</a></span> <br>
                             <hr class="solid">
                             <button onclick="location.href='./message.php?id=<?=$book['id']?>'">Contact Seller</button>
                         </div>
