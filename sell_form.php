@@ -10,6 +10,7 @@ session_start();
 if (!isset($_SESSION["email"])) {
     header("Location: index.php?errormsg=Not Logged In");
 } else {
+    $email = $_SESSION["email"];
     if (isset($_GET["command"])) {
         if ($_GET["command"] === "sell") {
 
@@ -89,6 +90,56 @@ if (!isset($_SESSION["email"])) {
     <meta name="keywords" content="define keywords for search engines">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+    
+        <!-- src="./scripts/autofill.js" -->
+    <script >
+        $(document).ready(function() {
+            class User {
+                constructor (id, fname, lname, email, phone, nickname){
+                    this.id = id;
+                    this.fname = fname;
+                    this.lname = lname;
+                    this.email = email;
+                    this.phone = phone;
+                    this.nickname = nickname;
+        
+                }
+            }
+
+            
+            function autofill(){
+                var user = new User();
+                var email = "<?php echo $email?>";
+                user.email = email;
+                console.log("emaioll " + email)
+                $.getJSON("apis/emailtouser.php?email=" + email, function(data) {
+                    if(data['success']==true){
+                        alert(data);
+                        user.fname = data["firstname"];
+                        user.lname = data["lastname"];
+                        user.phone = data["phone"];
+                        $("#fname").val(user.fname);
+                        $("#lname").val(user.lname);
+                        $("#email").val(user.email);
+                        $("#phone").val(user.phone);
+                    }
+                    else{
+                        alert(data['error']);
+                    }
+
+                });
+                
+            }
+            document.getElementById("use-profile").addEventListener("click", function () {
+                autofill();
+            });
+
+        });
+
+    </script>
 </head>
 
 <body>
@@ -115,25 +166,25 @@ if (!isset($_SESSION["email"])) {
 
                         <form method="post" id="sell-form" action="sell_form.php?command=sell">
                             <label for="title">Title:</label><br>
-                            <input type="text" id="title" name="title" placeholder="Title" required><br>
+                            <input class="form-control" type="text" id="title" name="title" placeholder="Title" required><br>
                             <label for="author">Author:</label><br>
-                            <input type="text" id="author" name="author" placeholder="Author" required><br>
+                            <input class="form-control"type="text" id="author" name="author" placeholder="Author" required><br>
                             <label for="edition">Edition/Year:</label><br>
-                            <input type="text" id="edition" name="edition" placeholder="Edition" required><br>
+                            <input class="form-control"type="text" id="edition" name="edition" placeholder="Edition" required><br>
                             <label for="isbn">ISBN:</label><br>
-                            <input type="text" id="isbn" name="isbn" placeholder="ISBN" required><br>
+                            <input class="form-control"type="text" id="isbn" name="isbn" placeholder="ISBN" required><br>
 
                             <label for="type" class="form-label">Condition</label>
-                            <select name="quality" id="type" required>
+                            <select class="form-control"name="quality" id="type" required>
                                 <option value="new">New</option>
                                 <option value="used">Used</option>
                             </select><br>
                             <label for="related-classes">Relevant Classes:</label><br>
-                            <input type="text" id="related-classes" name="classes" placeholder="Related"><br>
+                            <input class="form-control"type="text" id="related-classes" name="classes" placeholder="Related"><br>
                             <label for="img">Insert image URL:</label><br>
-                            <input type="url" id="img" name="imagelink"><br>
+                            <input class="form-control"type="url" id="img" name="imagelink"><br>
                             <label for="price">Sale Price:</label><br>
-                            <input type="number" id="price" name="price" placeholder="$" step="any" min="0" required><br>
+                            <input class="form-control"type="number" id="price" name="price" placeholder="$" step="any" min="0" required><br>
                             <label for="description">Description:</label><br>
                             <textarea name="description" id="description" cols="30" rows="5" placeholder="Description" required></textarea>
 
