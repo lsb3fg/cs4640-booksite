@@ -94,6 +94,7 @@ if (!isset($_SESSION["email"])) {
                         <div class="form-outline mb-4">
                             <label class="form-label" for="typeEmailX-2">Email</label>
                             <input type="email" id="typeEmailX-2" class="form-control form-control-lg" name="email" />
+                            <div id="emailhelp" class="form-text"></div>
                         </div>
             
                         <div class="form-outline mb-3">
@@ -113,7 +114,8 @@ if (!isset($_SESSION["email"])) {
                             <label class="form-check-label" style="margin: 2px;" for="form1Example3"> Remember password </label>
                         </div>
 
-                        <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit">Login</button>     
+                        <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit">Login</button> 
+                        <!-- <input class="btn btn-primary btn-lg btn-block" type="button" id="submit" value="Login">      -->
                         <br>   
                         <a href="account.php">No account? Click here to register!</a>
                     </form>
