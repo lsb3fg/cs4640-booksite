@@ -40,10 +40,10 @@
                             <a class="nav-link active" href="./message_list.php">My Messages</a>
                         </li>
                         </ul>
-                        <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
+
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchvalue">
+                        <button class="btn btn-outline-success" id="searchbutton">Search</button>
+
                         <div id="login-button" style="margin-left: 15px; float:right">
                             <a href="./login.php" class="btn btn-outline-primary">
                                 <?php 
