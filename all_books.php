@@ -40,56 +40,68 @@ if ($data === false) {
         <script>
             var returnedjson = null;
 
-            function search(value=null) {
+            function search(value = null) {
                 var url = "apis/search.php?";
                 var search = $("#searchvalue").val();
 
-                if(value!=null){
-                    search=value;
+                if (value != null) {
+                    search = value;
                 }
                 // alert("Searching for "+value);
                 url += "search=" + search;
-                if(search==""){
+                if (search == "") {
                     $(".results").html("Showing all results:");
-                }
-                else{
-                    $(".results").html("Showing results for: "+search);
+                } else {
+                    $(".results").html("Showing results for: " + search+" <br>"+'<a href=all_books.php?search=>Show all results?</a>');
                 }
 
-                $.getJSON(url, function (data) {
-                returnedjson = data;
-                updatepage();
-            });
+                $.getJSON(url, function(data) {
+                    returnedjson = data;
+                    updatepage();
+                });
             }
 
-            function updatecards(index){
-               // for(let i = 0; i<returnedjson['data'].length; i++){
+            function updatecards(index) {
+                // for(let i = 0; i<returnedjson['data'].length; i++){
 
-                let current = "boxnumber"+index;
+                let current = "boxnumber" + index;
                 let current_book = returnedjson['data'][index];
-                $("#"+current+" .viewlink").attr('href','bookview.php?id='+current_book['id']);
-                            $("#"+current+" .book-title").html(current_book['title']);
-                            $("#"+current+" .publish-date").html("Edition: "+current_book['edition']);
-                            $("#"+current+" .book-image").attr('src',current_book['imagelink']);
-               // }
+                $("#" + current + " .viewlink").attr('href', 'bookview.php?id=' + current_book['id']);
+                $("#" + current + " .book-title").html(current_book['title']);
+                $("#" + current + " .publish-date").html("Edition: " + current_book['edition']);
+                $("#" + current + " .book-image").attr('src', current_book['imagelink']);
+                $("#" + current + " .price").html("$"+current_book['price']);
+
+                
+                $.getJSON("apis/idtousername.php?id="+current_book['seller'], function(data) {
+                    if(data['success']==true){
+                        $("#" + current + " .seller").html("Seller: "+data['username']);
+                    }
+                    else{
+                        $("#" + current + " .seller").html("unknown seller");
+                    }
+                });
+
+                // }
             }
 
             function updatepage() {
-  
+
                 if (returnedjson === null) {
                     search("");
-                } else if(returnedjson['success']!=true){
+                } else if (returnedjson['success'] != true) {
                     alert("JSON FAILED");
-                }
-                else{
+                } else {
 
                     $("#containers").empty();
-                    for(let i = 0; i<returnedjson['data'].length; i++){
+                    for (let i = 0; i < returnedjson['data'].length; i++) {
                         let current_book = returnedjson['data'][i];
-                        let text = '<ahh id="boxnumber'+i+'"></ahh>';
-                        let current = "boxnumber"+i;
+                        let text = '<ahh id="boxnumber' + i + '"></ahh>';
+                        let current = "boxnumber" + i;
                         $("#containers").append(text);
-                        $("#"+current).load("templates/book_item.php",function(){updatecards(i);});
+                        $("#" + current).load("templates/book_item.php", function() {
+                            updatecards(i);
+                        });
                     }
                 }
             }
@@ -136,20 +148,17 @@ if ($data === false) {
 
 
 
-        <?php
-        if(isset($_GET["search"])){?>
-                    $(window).ready(function(){
-            search("<?=$_GET["search"]?>");
-                    })
-        <?php } else{ ?>
-            $(window).ready(function(){
-                updatepage();
-                    })
+            <?php
+            if (isset($_GET["search"])) { ?>
+                $(window).ready(function() {
+                    search("<?= $_GET["search"] ?>");
+                })
+            <?php } else { ?>
+                $(window).ready(function() {
+                    updatepage();
+                })
 
-        <?php }?>
-        
-
-            
+            <?php } ?>
         </script>
     </body>
 

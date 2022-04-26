@@ -58,7 +58,7 @@
                         </li>
                         </ul>
 
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchvalue">
+                        <input class="form-control me-2" type="search" placeholder="Search by Title" aria-label="Search" id="searchvalue">
                         <button class="btn btn-outline-success" id="searchbutton" onclick="outofscopesearch()">Search</button>
 
                         <div id="login-button" style="margin-left: 15px; float:right">
