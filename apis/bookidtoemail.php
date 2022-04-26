@@ -28,10 +28,8 @@ if($data===false){
     $outputarray["success"]=False;
     $outputarray["error"]= "ID NOT FOUND";
 } else{
-    $seler = $data[0]["seller"];
-    
-
-}
+    $seller = $data[0]["seller"];
+    $username = idToUser($seller,$db);
 
     if(!$username){
         $outputarray["success"]=False;
@@ -39,12 +37,12 @@ if($data===false){
     }
     else{
         $outputarray["success"]=True;
-        $outputarray["username"]=$username["username"];
-        $outputarray["firstname"]=$username["firstname"];
-        $outputarray["lastname"]=$username["lastname"];
-        $outputarray["nickname"]=$username["nickname"];
-        $outputarray["phone"] =$username["phone"];
+        $outputarray["email"]=$username["email"];
+
     }
+
+}
+
 
 
 
