@@ -23,6 +23,10 @@ else{
     else{
         $outputarray["success"]=True;
         $outputarray["username"]=$username["username"];
+        $outputarray["firstname"]=$username["firstname"];
+        $outputarray["lastname"]=$username["lastname"];
+        $outputarray["nickname"]=$username["nickname"];
+        $outputarray["phone"] =$username["phone"];
     }
 
 

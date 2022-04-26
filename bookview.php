@@ -151,7 +151,7 @@ For email button
 
 
                             <span>Email: <a id="email" style="display: none;"
-                                    href="mailto:johndoe@virgnia.edu"><?=$user["email"]?></a> <button
+                                    href=""></a> <button
                                     onclick="revealEmail()">Reveal Email</button></span> <br>
 
                             <hr class="solid">
@@ -176,7 +176,11 @@ For email button
                 
                 <script>
                     function disclaimerFunction() {
-                        alert("Maybe we will actually make a shopping cart!");
+                        alert("No Actual Shopping Cart yet");
+                    }
+
+                    function revealEmail(){
+                        
                     }
                 </script>
 
@@ -204,13 +208,7 @@ For email button
 
     <script>
         function revealEmail() {
-            var e = document.getElementById('email')
-        if( e.style.display != "inline"){
-            var temp = confirm("Confirm that you are not a bot");
-            if(temp){
-                e.style.display = "inline"
-            }
-        }
+            
 
         }
     </script>
