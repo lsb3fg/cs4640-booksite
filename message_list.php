@@ -19,7 +19,12 @@ if($data===false){
     print("SQL ERROR");
     header("Location: index.php?errormsg=Error");
 } else {
-    $userid= $data[0]["id"];
+    // print_r($data);
+    // if(isset($data[0])){
+       
+        $userid= $data[0]["id"];
+    // }
+    
 }
 
 $data = $db->query("select * from messages where receiver = ?;","i",$userid);
@@ -29,6 +34,7 @@ if($data===false){
     header("Location: index.php?errormsg=Error");
 
 } else {
+   
     $messages=$data;
 }
 ?>

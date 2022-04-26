@@ -65,6 +65,10 @@ if (!isset($_SESSION["email"])) {
          <meta name="keywords" content="define keywords for search engines"> 
          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
          <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+         <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+        <script src="./scripts/login_validation.js"></script>
 
      </head>  
      <body>
@@ -87,31 +91,32 @@ if (!isset($_SESSION["email"])) {
                 ?>
                     <h3 class="mb-3 mt-0">Sign in</h3>
                     <form action="?command=login" method="post">
-                    <div class="form-outline mb-4">
-                        <input type="email" id="typeEmailX-2" class="form-control form-control-lg" name="email" />
-                        <label class="form-label" for="typeEmailX-2">Email</label>
-                    </div>
-        
-                    <div class="form-outline mb-3">
-                        <input type="password" id="typePasswordX-2" class="form-control form-control-lg" name="password" />
-                        <label class="form-label" for="typePasswordX-2">Password</label>
-                    </div>
-        
-                    <div class="form-check d-flex justify-content-start mb-3">
-                        <input
-                        class="form-check-input"
-                        type="checkbox"
-                        value=""
-                        id="form1Example3"
-                        
-                        />
-                        <label class="form-check-label" style="margin: 2px;" for="form1Example3"> Remember password </label>
-                    </div>
+                        <div class="form-outline mb-4">
+                            <label class="form-label" for="typeEmailX-2">Email</label>
+                            <input type="email" id="typeEmailX-2" class="form-control form-control-lg" name="email" />
+                        </div>
+            
+                        <div class="form-outline mb-3">
+                            <label class="form-label" for="typePasswordX-2">Password</label>
+                            <input type="password" id="typePasswordX-2" class="form-control form-control-lg" name="password" />
+                            <div id="pwhelp" class="form-text"></div>
+                        </div>
+            
+                        <div class="form-check d-flex justify-content-start mb-3">
+                            <input
+                            class="form-check-input"
+                            type="checkbox"
+                            value=""
+                            id="form1Example3"
+                            
+                            />
+                            <label class="form-check-label" style="margin: 2px;" for="form1Example3"> Remember password </label>
+                        </div>
 
-                    <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>     
-                    <br>   
-                    <a href="account.php">No account? Click here to register!</a>
-</form>
+                        <button class="btn btn-primary btn-lg btn-block" type="submit" id="submit">Login</button>     
+                        <br>   
+                        <a href="account.php">No account? Click here to register!</a>
+                    </form>
                     </div>
                 </div>
             
@@ -143,6 +148,10 @@ else{
         <meta name="keywords" content="define keywords for search engines"> 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> 
         <link rel="stylesheet" type="text/css" href="./styles/main.css" />
+         <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
+        <script src="./scripts/login_validation.js"></script>
 
     </head>  
     <body>
