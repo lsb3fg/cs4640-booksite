@@ -14,8 +14,10 @@ $(document).ready(function() {
     
     function autofill(){
         var user = new User();
-        $.getJSON("apis/idtousername.php?id=", function(data) {
-            
+        $.getJSON("apis/idtousername.php?email=", function(data) {
+            if(data['success']==true){
+                
+            }
 
         });
         console.log("cheked");

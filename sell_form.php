@@ -10,6 +10,7 @@ session_start();
 if (!isset($_SESSION["email"])) {
     header("Location: index.php?errormsg=Not Logged In");
 } else {
+    $email = $_SESSION["email"];
     if (isset($_GET["command"])) {
         if ($_GET["command"] === "sell") {
 
@@ -92,7 +93,53 @@ if (!isset($_SESSION["email"])) {
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
-    <script src="./scripts/autofill.js"></script>
+    
+        <!-- src="./scripts/autofill.js" -->
+    <script >
+        $(document).ready(function() {
+            class User {
+                constructor (id, fname, lname, email, phone, nickname){
+                    this.id = id;
+                    this.fname = fname;
+                    this.lname = lname;
+                    this.email = email;
+                    this.phone = phone;
+                    this.nickname = nickname;
+        
+                }
+            }
+
+            
+            function autofill(){
+                var user = new User();
+                var email = "<?php echo $email?>";
+                user.email = email;
+                console.log("emaioll " + email)
+                $.getJSON("apis/emailtouser.php?email=" + email, function(data) {
+                    if(data['success']==true){
+                        alert(data);
+                        user.fname = data["firstname"];
+                        user.lname = data["lastname"];
+                        user.phone = data["phone"];
+                        $("#fname").val(user.fname);
+                        $("#lname").val(user.lname);
+                        $("#email").val(user.email);
+                        $("#phone").val(user.phone);
+                    }
+                    else{
+                        alert(data['error']);
+                    }
+
+                });
+                
+            }
+            document.getElementById("use-profile").addEventListener("click", function () {
+                autofill();
+            });
+
+        });
+
+    </script>
 </head>
 
 <body>
