@@ -6,33 +6,29 @@ $db = new Database();
 
 include("../idToUser.php");
 
+function emailToUser($email,$db)
+{
+    $data = $db->query("select * from users where email = ?;","s",$email);
+
+    if($data===false){
+        print("SQL ERROR");
+        return false;
+    } else if(!empty($data)){
+        return $data[0];
+    }
+    return false;
+}
+
 
 $outputarray = array();
-if(!isset($_GET["id"])){
+if(!isset($_GET["email"])){
     $outputarray["success"]=False;
-    $outputarray["error"]= "Must append url with ?id=[id]";
+    $outputarray["error"]= "Must append url with ?email=email";
 
 }
 
 else{
-
-    $data = $db->query("select seller from books where id = ?;","i",$_GET["id"]);
-
-
-    
-if($data===false){
-    $outputarray["success"]=False;
-    $outputarray["error"]= "ID NOT FOUND";
-
-} else if(empty($data)){
-    $outputarray["success"]=False;
-    $outputarray["error"]= "ID NOT FOUND";
-} else{
-    $seler = $data[0]["seller"];
-    
-
-}
-
+    $username = emailToUser($_GET["email"],$db);
     if(!$username){
         $outputarray["success"]=False;
         $outputarray["error"]= "Invalid user";
