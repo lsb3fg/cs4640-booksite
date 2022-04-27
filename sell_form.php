@@ -133,7 +133,16 @@ if (!isset($_SESSION["email"])) {
                 
             }
             document.getElementById("use-profile").addEventListener("click", function () {
-                autofill();
+                if(document.getElementById("use-profile").checked == true){
+                    autofill();
+                }
+                else {
+                    $("#fname").val("");
+                    $("#lname").val("");
+                    $("#email").val("");
+                    $("#phone").val("");
+                }
+                
             });
 
         });
