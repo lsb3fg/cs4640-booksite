@@ -12,6 +12,7 @@ if (!isset($_SESSION["email"])) {
     $task = "create";
 } else {
     $task = "update";
+    $email = $_SESSION["email"];
 }
 
 
@@ -152,8 +153,64 @@ if (isset($_GET["task"])) {
     <link rel="stylesheet" type="text/css" href="./styles/main.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-        crossorigin="anonymous"></script>
-        <script src="./scripts/new_account_validation.js"></script>
+        crossorigin="anonymous">
+    </script>
+    <script src="./scripts/new_account_validation.js"></script>
+    <script>
+        $(document).ready(function() {
+            class User {
+                constructor (id, fname, lname, email, phone, nickname, username){
+                    this.id = id;
+                    this.fname = fname;
+                    this.lname = lname;
+                    this.email = email;
+                    this.phone = phone;
+                    this.nickname = nickname;
+                    this.username = username;
+        
+                }
+            }
+            function autofill(){
+                var user = new User();
+                var email = "<?php echo $email?>";
+                user.email = email;
+                $.getJSON("apis/emailtouser.php?email=" + email, function(data) {
+                    if(data['success']==true){
+                        user.fname = data["firstname"];
+                        user.lname = data["lastname"];
+                        user.phone = data["phone"];
+                        user.nickname = data["nickname"];
+                        user.username = data["username"];
+                        $("#fname").val(user.fname);
+                        $("#lname").val(user.lname);
+                        $("#email").val(user.email);
+                        $("#phone").val(user.phone);
+                        $("#nickname").val(user.nickname);
+                        $("#username").val(user.username);
+                    }
+                    else{
+                        alert(data['error']);
+                    }
+
+                });
+                
+            }
+            document.getElementById("autofill").addEventListener("click", function () {
+                if(document.getElementById("autofill").checked == true){
+                    autofill();
+                }
+                else {
+                    $("#fname").val("");
+                    $("#lname").val("");
+                    $("#email").val("");
+                    $("#phone").val("");
+                }
+                
+            });
+
+        });
+    </script>
+    
 </head>
 
 <body>
@@ -186,6 +243,8 @@ if (isset($_GET["task"])) {
 
             <div class="card-body col-md-12">
                 <form id="sell-form1" action="./account.php?task=<?= $task ?>" method="post">
+                    <label for="autofill">Use Profile Info:</label>
+                    <input type="checkbox" name="use-profile" id="autofill"><br><br>
                     <label for="username">Username*:</label><br>
                     <input class="form-control"type="text" id="username" name="username" placeholder="Username" required><br>
                     <label class="form-label" for="password">Password*:</label><br>
@@ -207,7 +266,7 @@ if (isset($_GET["task"])) {
 
             </div>
             <div class="card-footer" style="text-align: right;">
-                <button type="submit" class="btn btn-primary" onclick="submitForm()">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
             </form>
         </div>

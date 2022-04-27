@@ -18,6 +18,7 @@
             <span style="text-align:right">
             <button type="submit" class="btn btn-primary" style="float:right">View</button></span>
         </div>
+        <div id="delete-button"></div>
     </a>
 </div>
 

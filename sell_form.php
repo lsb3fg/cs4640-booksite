@@ -93,8 +93,6 @@ if (!isset($_SESSION["email"])) {
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
-    
-        <!-- src="./scripts/autofill.js" -->
     <script >
         $(document).ready(function() {
             class User {
@@ -114,7 +112,6 @@ if (!isset($_SESSION["email"])) {
                 var user = new User();
                 var email = "<?php echo $email?>";
                 user.email = email;
-                console.log("emaioll " + email)
                 $.getJSON("apis/emailtouser.php?email=" + email, function(data) {
                     if(data['success']==true){
                         user.fname = data["firstname"];
@@ -201,7 +198,7 @@ if (!isset($_SESSION["email"])) {
                 </div>
                 <div class="card col-md-6" style="float: left;">
                     <div class="card-header">
-                        <h4>Seller info (NOT YET IMPLEMENTED)</h4>
+                        <h4>Seller info</h4>
                     </div>
                     <div class="card-body col-md-12">
 

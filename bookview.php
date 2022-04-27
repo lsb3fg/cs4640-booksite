@@ -27,20 +27,14 @@ if (!isset($_GET["id"])) {
 
             $user = $data[0];
         }
-
-
-
-
-
-
 ?>
 
 
 
 
 
-        <!DOCTYPE html>
-        <html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 
         <!-- 
