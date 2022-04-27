@@ -137,9 +137,9 @@ For email button
                                 <div id="description">
                                     <h6 class="card-subtitle mb-2 text-justify text-center " id="price"> $<?= $book["price"] ?></h6>
                                     <span>Seller: <a href="account.php"><?= $user["firstname"] ?> <?= $user["lastname"] ?> <?php if (!isset($user["firstname"]) && !isset($user["lastname"]) || ($user["firstname"] === "" && $user["lastname"] === "")) {
-                                                                                                                            echo $user["username"];
-                                                                                                                        }
-                                                                                                                        ?></a></span> <br>
+                                                                                                                                echo $user["username"];
+                                                                                                                            }
+                                                                                                                            ?></a></span> <br>
 
 
                                     <span>Email: <a id="email" style="display: none;" href=""> </a><button id="emailbutton">Reveal Email</button></span> <br>
@@ -165,9 +165,9 @@ For email button
 
 
                         <script>
-
-                            
-                            $("#emailbutton").click(() => {revealEmail();})
+                            $("#emailbutton").click(() => {
+                                revealEmail();
+                            })
 
 
 
@@ -175,14 +175,14 @@ For email button
 
                             function revealEmail() {
 
-                                var id = <?=$book['id']?>;
-                                var url = "apis/bookidtoemail.php?id="+id;
-                                $.getJSON(url, function(data) {
-                                    returnedemail=data;
-                                    if(returnedemail["success"]==true){
-                                        $("#email").attr("display","inline");
-                                        $("#email").attr("style","display: inline");
-                                        $("#email").attr("href","mailto:"+returnedemail["email"]);
+                                var id = <?= $book['id'] ?>;
+                                var url = "apis/bookidtoemail.php?id=" + id;
+                                $.getJSON(url, (data) => {
+                                    returnedemail = data;
+                                    if (returnedemail["success"] == true) {
+                                        $("#email").attr("display", "inline");
+                                        $("#email").attr("style", "display: inline");
+                                        $("#email").attr("href", "mailto:" + returnedemail["email"]);
                                         $("#email").html(returnedemail["email"]);
                                         $("#emailbutton").remove();
                                     }
