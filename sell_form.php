@@ -117,7 +117,6 @@ if (!isset($_SESSION["email"])) {
                 console.log("emaioll " + email)
                 $.getJSON("apis/emailtouser.php?email=" + email, function(data) {
                     if(data['success']==true){
-                        alert(data);
                         user.fname = data["firstname"];
                         user.lname = data["lastname"];
                         user.phone = data["phone"];
