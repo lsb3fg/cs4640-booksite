@@ -43,7 +43,7 @@ if (isset($_GET["errormsg"])) {
              
          </header>
 
-         <div id="page-container">
+         <div id="page-container" style="text-align: center">
             <?php 
               // session_start();
 
@@ -60,11 +60,23 @@ if (isset($_GET["errormsg"])) {
               else{
                 echo "Not logged in";
               }
-
-
-              
             
             ?>
+
+            <BR></BR>
+
+            <h5>Check out the listings for sale or search for a book you want to find.</h5>
+            <h5>Or login and to make a listing of your own!</h5>
+
+            <br>
+
+            <div style="text-align: center">
+              <a class="btn btn-primary" href="./all_books.php">View Listings</a>
+              <a class="btn btn-primary" href="./sell_form.php">Sell a Book</a>
+              <a class="btn btn-primary" href="./account.php">Create/Edit Account</a>
+              <a class="btn btn-primary" href="./message_list.php">My Messages</a>
+
+            </div>
          </div>
 
          <?php include("templates/footer.php"); ?>
