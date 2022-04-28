@@ -6,9 +6,9 @@
     <div class="card col-md-4" id="book-item" style="width: 20rem;">
         
             <div class="card-header">
-            <a href="messageview.php?id=<?=$id?>">
+            <!-- <a href="messageview.php?id=<?=$id?>"> -->
                 <h3 class="card-title text-justify text-center " id="book-title"><?=$title?></h3><br>
-                </a>
+                <!-- </a> -->
                 <p class="card-title text-justify text-center " id="book-title">Sent by <?=$sender?></p><br>
 
             </div>
