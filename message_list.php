@@ -20,10 +20,10 @@ if($data===false){
     header("Location: index.php?errormsg=Error");
 } else {
     // print_r($data);
-    // if(isset($data[0])){
+    if(isset($data[0])){
        
         $userid= $data[0]["id"];
-    // }
+    }
     
 }
 
